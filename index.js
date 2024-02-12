@@ -1,26 +1,20 @@
 // console.log("Welcome to Express Js")
 // 1st step is to import the server
-import { json } from 'body-parser'
+
 import express from 'express'
 import path from 'path'
 // const express = require('express')
 //create an express app
 const app = express()
 const router = express.Router()
-const port = +process.env.PORT || 4000
+
 app.use(router,
     express.static('./static')
 )
+const port = +process.env.PORT || 4000
 //Router
 router.get('/$|/express',display ,(req,res)=>{
-    res.json
-    //    res.status(200).json({
-    //     msg: 'You\'re home'
-    //    })
-    res.json({
-        status: res.statusCode,
-        msg: 'You\'re home'
-    })
+    res.status(200).sendFile(path.resolve('./static/html/index.html'))
 })
 router.get('/about', (req, res)=>{clear
     res.json({
